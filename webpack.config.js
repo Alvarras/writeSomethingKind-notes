@@ -8,13 +8,13 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "production"),
     clean: true,
   },
   devtool: "source-map",
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, "production"),
     },
     port: 3000,
     open: true,

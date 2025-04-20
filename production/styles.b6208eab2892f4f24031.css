@@ -1,0 +1,133 @@
+:root {
+  /* Dark theme (default) */
+  --primary-color: #101010;
+  --card-color: #1e1e1e;
+  --border-color: #3a3a3a;
+  --text-color: rgb(249, 249, 249);
+  --darker-text-color: rgb(227, 227, 227);
+  --background-dot-color: #2c2c2c;
+  --placeholder-color: rgba(227, 227, 227, 0.7);
+  --date-color: rgb(180, 180, 180);
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Light theme */
+:root.light-theme {
+  --primary-color: #f5f5f5;
+  --card-color: #ffffff;
+  --border-color: #cccccc;
+  --text-color: #333333;
+  --darker-text-color: #555555;
+  --background-dot-color: #dddddd;
+  --placeholder-color: rgba(100, 100, 100, 0.7);
+  --date-color: rgb(120, 120, 120);
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--primary-color);
+  opacity: 1;
+  background-image: radial-gradient(var(--background-dot-color) 0.8px, var(--primary-color) 0.8px);
+  background-size: 16px 16px;
+  transition: background-color 0.3s ease;
+  color: var(--text-color);
+  font-family: "Readex Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content wrapper */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* CSS Grid implementation for notes container */
+#notes-container {
+  padding: 20px;
+  width: 85%;
+  max-width: 1700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+note-card {
+  width: 100%;
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Success message styling */
+#error-container.success {
+  background-color: #52c41a !important;
+}
+
+/* Responsive grid adjustments */
+@media (min-width: 1750px) {
+  #notes-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1749px) and (min-width: 1361px) {
+  #notes-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1360px) and (min-width: 1041px) {
+  #notes-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1040px) and (min-width: 716px) {
+  #notes-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 715px) {
+  #notes-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer always at bottom */
+app-footer {
+  margin-top: auto;
+}
+
+
+/*# sourceMappingURL=styles.b6208eab2892f4f24031.css.map*/
